@@ -1,0 +1,48 @@
+<html>
+	<head>
+		<title>Form Submission</title>
+	</head>
+	<body>
+		<input type="text" name="first" placeholder="First"><br />
+		<input type="text" name="last" placeholder="Last"><br />
+		<button>Post</button>
+
+	<script>
+		function el(e, a){
+			if(a){
+				return document.querySelectorAll(e);
+			} else {
+				return document.querySelector(e);
+			}
+		}
+
+		var i = el("input", true);
+		var btn = el("button");
+
+		btn.onclick = function() {
+			var data = {
+				first: i[0].value,
+				last: i[1].value
+			};
+
+			
+			console.log( JSON.stringify(data) );
+
+			fetch("http://localhost:8081/post", {
+				method: "POST",
+				mode: "cors",
+				headers: {
+					"Content-Type": "application/json"
+				},
+				body: JSON.stringify(data)
+			}).then(function(response){
+				return response.json();
+			}).then(function(data){
+				console.log(data);
+			});
+			
+		};
+	</script>
+	</body>
+</html>
+
