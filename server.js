@@ -1,14 +1,24 @@
 var express = require("express"),
     app = express(),
-    port = 8081,
+    port = process.env.port || 8081,
     bodyParser = require("body-parser"),
-    cors = require("cors");
+    cors = require("cors"),
+    morgan = require("morgan"),
+    cookieParser = require("cookie-parser"),
+    methodOverride = require("method-override");
 
-
+app.use(morgan("combined"));
 app.use(bodyParser.urlencoded({ "extended": "true" }));
 app.use(bodyParser.json());
-//app.use(bodyParser.json({ type: "application/vdn.api+json"}));
+app.use(cookieParser());
 app.use(cors());
+
+
+app.use( express.static( __dirname + "/public"));
+app.set("view", __dirname + "/views");
+app.set("view engine", "ejs");
+app.engine("html", require("ejs").renderFile);
+
 
 app.get("/", function(req, res){
     res.write("Homepage");
