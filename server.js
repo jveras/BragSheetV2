@@ -14,26 +14,41 @@ app.use(cookieParser());
 app.use(cors());
 
 
-app.use( express.static( __dirname + "/public"));
-app.set("view", __dirname + "/views");
+app.use(express.static(__dirname + "/public"));
+app.set("views", __dirname + "/view");
 app.set("view engine", "ejs");
 app.engine("html", require("ejs").renderFile);
 
 
-app.get("/", function(req, res){
-    res.write("Homepage");
-    res.end();
+app.get("/", function(req, res) {
+    res.render("index", {
+        title: "This sent from some site",
+        content: "guhhhh"
+    });
 });
 
-app.post("/post", function(req, res){
-	var d = req.body;
+app.get("/i2", function(req, res) {
+    res.render("index", {
+        title: "Index 2",
+        content: "ughhh"
+    });
+});
 
-	console.log(d.first);
+app.get("/i3", function(req, res) {
+    res.render("index", {
+        title: "index 3",
+        content: "aaaaa"
+    });
+});
+
+app.post("/post", function(req, res) {
+    var d = req.body;
+
+    console.log(d.first);
 
 });
 
 
-app.listen(port, function(){
+app.listen(port, function() {
     console.log("Server started on port " + port);
 });
-
