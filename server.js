@@ -45,6 +45,17 @@ app.get("/Account/Login", function(req, res) {
     });
 });
 
+app.post("/Account/Login", function(req, res) {
+
+    var data = req.body;
+
+    console.log(data);
+
+    res.render("account/login", {
+        title: "Log In"
+    });
+});
+
 
 app.listen(port, function() {
     console.log("Server started on port " + port);

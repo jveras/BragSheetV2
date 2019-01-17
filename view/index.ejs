@@ -1,9 +1,27 @@
 <% include header.ejs %>
 
-	<div>
-		This is a test of my template engine!!
+	<div class="wrapper fadeInDown">
+  		<div id="formContent">
+		<!-- Tabs Titles -->
+
+		<!-- Icon -->
+		<div class="fadeIn first">
+			<img src="https://www.b-cube.in/wp-content/uploads/2014/05/aditya-300x177.jpg" id="icon" alt="User Icon" />
+			<h1>Student Success Center <br>Brag Sheet </h1>
+		</div>
+
+		<!-- Login Form -->
+		<form method="POST" action="account/login">
+			<input type="text" id="login" class="fadeIn second" name="email" placeholder="Email">
+			<input type="text" id="password" class="fadeIn third" name="password" placeholder="Password">
+			<input type="submit" class="fadeIn fourth" value="Log In">
+		</form>
+
+		<!-- Remind Passowrd -->
+		<div id="formFooter">
+			<button class="btn btn-default">Create Account</button>
+			<button class="btn btn-default">Reset Password</button>
+		</div>
+
 	</div>
-	<%= content %>
-
-
-<% include footer.ejs %>
+	</div>
