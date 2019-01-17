@@ -41,7 +41,8 @@ app.post("/Account/Register", function(req, res) {
 
 app.get("/Account/Login", function(req, res) {
     res.render("account/login", {
-        title: "Log In"
+        title: "Log In",
+        test: "blah"
     });
 });
 
@@ -52,7 +53,8 @@ app.post("/Account/Login", function(req, res) {
     console.log(data);
 
     res.render("account/login", {
-        title: "Log In"
+        title: "Log In",
+        test: "Sent Successfully"
     });
 });
 
