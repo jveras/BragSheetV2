@@ -1,5 +1,5 @@
 {
-  "name": "SSCBragSheet",
+  "name": "bragsheet",
   "version": "0.0.0",
   "description": "",
   "main": "server.js",
@@ -25,5 +25,6 @@
     "express": "^4.16.4",
     "method-override": "^3.0.0",
     "morgan": "^1.9.1"
-  }
+  },
+  "devDependencies": {}
 }

@@ -22,31 +22,27 @@ app.engine("html", require("ejs").renderFile);
 
 app.get("/", function(req, res) {
     res.render("index", {
-        title: "This sent from some site",
-        content: "guhhhh"
+        title: "Brag Sheet"
     });
 });
 
-app.get("/i2", function(req, res) {
-    res.render("index2", {
-        title: "Index 2",
-        content: "ughhh",
-        num: 10
+app.get("/Account/Register", function(req, res) {
+    res.render("account/register", {
+        title: "Create Account"
     });
 });
 
-app.get("/i3", function(req, res) {
-    res.render("index3", {
-        title: "index 3",
-        content: "aaaaa"
-    });
-});
-
-app.post("/post", function(req, res) {
+app.post("/Account/Register", function(req, res) {
     var d = req.body;
 
     console.log(d.first);
 
+});
+
+app.get("/Account/Login", function(req, res) {
+    res.render("account/login", {
+        title: "Log In"
+    });
 });
 
 
