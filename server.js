@@ -28,14 +28,15 @@ app.get("/", function(req, res) {
 });
 
 app.get("/i2", function(req, res) {
-    res.render("index", {
+    res.render("index2", {
         title: "Index 2",
-        content: "ughhh"
+        content: "ughhh",
+        num: 10
     });
 });
 
 app.get("/i3", function(req, res) {
-    res.render("index", {
+    res.render("index3", {
         title: "index 3",
         content: "aaaaa"
     });
