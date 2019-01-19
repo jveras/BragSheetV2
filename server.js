@@ -35,7 +35,7 @@ app.get("/Account/Register", function(req, res) {
 app.post("/Account/Register", function(req, res) {
     var d = req.body;
 
-    console.log(d.first);
+    console.log(d);
 
 });
 

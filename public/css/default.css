@@ -291,3 +291,6 @@ h1 {
 #icon {
     width: 30%;
 }
+.line{
+    border: 1px solid black;
+}
