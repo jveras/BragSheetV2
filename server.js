@@ -28,7 +28,8 @@ app.get("/", function(req, res) {
 
 app.get("/Account/Register", function(req, res) {
     res.render("account/register", {
-        title: "Create Account"
+        css: "/css/register.css",
+        title:"Acount Created"
     });
 });
 
@@ -42,9 +43,10 @@ app.post("/Account/Register", function(req, res) {
 app.get("/Account/Login", function(req, res) {
     res.render("account/login", {
         title: "Log In",
-        test: "blah"
+        css: "/css/login.css"
     });
 });
+
 
 app.post("/Account/Login", function(req, res) {
 
@@ -54,7 +56,7 @@ app.post("/Account/Login", function(req, res) {
 
     res.render("account/login", {
         title: "Log In",
-        test: "Sent Successfully"
+        
     });
 });
 
