@@ -1,0 +1,69 @@
+<% include ../header.ejs %>
+    <form method="POST" action="/Account/Profile">
+      <div id="dvStudent">
+        <h3>Student's Information:</h3>
+        <hr >
+        <!-- NAME -->
+        <div class="row">
+          <div class=" col-sm-4 col-md-4 col-lg-4">
+            <label class="fname">First Name </label><input id="fname" name="tbFirst" placeholder="First Name" class="form-control" />
+          </div>
+
+          <div class="col-sm-4 col-md-4 col-lg-4">
+            <label class="mname">Middle Name </label><input id="mname" name="tbMiddle" placeholder="Middle Name" class="studentMName form-control" />
+          </div>
+
+          <div class="col-sm-4 col-md-4 col-lg-4">
+            <label class="lname">Last Name </label><input id="lname" name="tbLast" placeholder="Last Name" class="studentLName form-control" />
+          </div>
+
+        </div>
+        <br>
+
+        <div class="row">
+          <div class="col-sm-2 col-md-2 col-lg-2">
+            <label class="school">School Grade </label><select id="school" name="tbGrade" class="selectGrade form-control">
+            <option >Select Grade</option>
+            <option >11th</option>
+            <option >12th</option>
+            </select>
+          </div>
+          
+          <div class="col-sm-2 col-md-2 col-lg-2">
+              <!-- TEMP FIX -->
+              <label class="gp"> GPA </label><input id="gp" type="text" name="tbGPA" class="form-control" placeholder="GPA" />
+           </div>
+
+          <div class="col-sm-4 col-md-4 col-lg-4">
+            <label class="gen">Gender </label><select id="gen" name="tbGenderOption" class="selectGender form-control">
+            <option value="0">Select Gender</option>
+            <option value="1">Male</option>
+            <option value="2">Female</option>
+            <option value="3">Other</option>
+            </select>
+          </div>
+          <div class="test1 col-sm-4 col-md-4 col-lg-4">
+            
+               <label class="genderclass"> Write Your Gender </label><input id="sgen" placeholder="Gender" class=" form-control" name="tbWriteGender" />
+          </div>
+          
+          
+           </div>
+           
+         <br /><br /><br />
+          
+          <div class="row">
+
+            <div class="col-sm-12 col-md-12 col-lg-12">
+              <!-- TEMP FIX -->
+               <a herf="https://student-brag-sheet-jveras.c9users.io/Student/evaluation">
+              <button id="next1" style="float: right !important;" class="btn btn-success" type="submit">Next</button>
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </form>
+<% include ../footer.ejs %>

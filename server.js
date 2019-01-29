@@ -61,6 +61,24 @@ app.post("/Account/Login", function(req, res) {
 });
 
 
+app.get("/Account/Profile", function(req, res) {
+    res.render("account/profile", {
+        title: "Profile",
+        css: "/css/profile.css"
+    });
+});
+
+
+app.post("/Account/Profile", function(req, res) {
+
+    var data = req.body;
+
+    console.log(data);
+
+});
+
+
+
 app.listen(port, function() {
     console.log("Server started on port " + port);
 });
