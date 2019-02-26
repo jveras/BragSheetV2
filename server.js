@@ -69,8 +69,18 @@ app.post("/Account/Register", function(req, res) {
     var d = req.body;
 
     console.log(d);
-
-    var student = {
+    
+    if(d.osis.length ===9){
+        console.log("Long Enough");
+        if(osis=d.osisConfirm){
+            console.log("Are the same")
+        }else{
+            console.log("Are not the same");
+        }
+    }else{
+        console.log("Not Long Enough");
+    }
+    /*var student = {
         email: d.tbEmail,
         osis: parseInt(d.osis),
         password: d.osis,
@@ -82,6 +92,9 @@ app.post("/Account/Register", function(req, res) {
 
         console.log(results);
     });
+    res.render("/Account/Register", {
+
+    })*/
 
 });
 
