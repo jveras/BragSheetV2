@@ -1,17 +1,110 @@
 # CREATE DATABASE SCRIPTS
 
-
-
-DROP TABLE account;
-
-CREATE table account(
-    ID int NOT NULL UNIQUE AUTO_INCREMENT PRIMARY KEY,
-    email VARCHAR(64) NOT NULL,
-    password VARCHAR(256) NOT NULL,
-    OSIS INT NOT NULL UNIQUE,
-    verify INT NOT NULL,
-    profileID INT NOT NULL
+CREATE TABLE role (
+    ID int NOT NULL UNIQUE AUTO_INCREMENT ,
+    title varchar(64) NOT NULL,
+    PRIMARY KEY (ID)
+ );
+ CREATE TABLE verification (
+    ID int NOT NULL UNIQUE AUTO_INCREMENT ,
+    Code varchar(64),
+    PRIMARY KEY (ID)
+);
+CREATE TABLE account (
+    ID int NOT NULL UNIQUE AUTO_INCREMENT ,
+    Email varchar(64) NOT NULL UNIQUE ,
+    Password varchar(256) NOT NULL,
+    verify int NOT NULL,
+    RoleID int NOT NULL,
+    PRIMARY KEY (ID),
+    FOREIGN KEY (RoleID) REFERENCES role(ID),
+    FOREIGN KEY (verify) REFERENCES verification(ID)
+);
+CREATE TABLE schools (
+    ID int NOT NULL UNIQUE AUTO_INCREMENT ,
+    Name varchar(256) NOT NULL,
+    Address varchar(256) NOT NULL,
+    Address1 varchar(256),
+    City varchar(256) NOT NULL,
+    State varchar(256) NOT NULL,
+    Zip int NOT NULL,
+    Code varchar(256),
+    PRIMARY KEY (ID)
+);
+CREATE TABLE genders (
+    ID int NOT NULL UNIQUE AUTO_INCREMENT,
+    Type int NOT NULL, 
+    Other varchar(64) NOT NULL, 
+    PRIMARY KEY (ID)    
+);
+CREATE TABLE profile (
+    ID int NOT NULL UNIQUE AUTO_INCREMENT ,
+    First varchar(32) NOT NULL,
+    Middle varchar(32),
+    Last varchar(32) NOT NULL,
+    Gender int NOT NULL,
+    GradeLVL int NOT NULL,
+    GPA int NOT NULL,
+    SchoolID int NOT NULL,
+    AccountID int NOT NULL,
+    PRIMARY KEY (ID),
+    FOREIGN KEY (SchoolID) REFERENCES schools(ID),
+    FOREIGN KEY (AccountID) REFERENCES account(ID),
+    FOREIGN KEY (Gender) REFERENCES genders(ID)
+);
+CREATE TABLE familyType (
+    ID int NOT NULL UNIQUE AUTO_INCREMENT ,
+    Type varchar(64) NOT NULL,
+    PRIMARY KEY (ID)
+);
+CREATE TABLE guardian (
+    ID int NOT NULL UNIQUE AUTO_INCREMENT ,
+    FamilyTypeID int NOT NULL,
+    Name int NOT NULL,
+    Occupation varchar(256) NOT NULL,
+    EduLevel int NOT NULL,
+    ProfileOSIS int NOT NULL,
+    Other varchar(256),
+    PRIMARY KEY (ID),
+    FOREIGN KEY (FamilyTypeID) REFERENCES familyType(ID)
+);
+CREATE TABLE sibling (
+    ID int NOT NULL UNIQUE AUTO_INCREMENT ,
+    Relation int NOT NULL,
+    Level int NOT NULL,
+    OSIS int NOT NULL,
+    PRIMARY KEY (ID),
+    FOREIGN KEY (OSIS) REFERENCES profile(ID)
 );
 
-INSERT INTO account VALUES(0, "jk@aoiths.org", "123412341", 123456789, 0, 10);
-INSERT INTO account VALUES(0, "jv@aoiths.org", "123412341", 098765432, 0);
+CREATE TABLE Questions (
+    ID int NOT NULL UNIQUE AUTO_INCREMENT ,
+    FavClass varchar(256) NOT NULL,
+    FavClassDesc varchar(256) NOT NULL,
+    LessFavClass varchar(256) NOT NULL,
+    LessFavClassDesc varchar(256) NOT NULL,
+    NegCircumstance int NOT NULL,
+    Experience varchar(256) NOT NULL,
+    Additional varchar(256) NOT NULL,
+    OSIS int NOT NULL,
+    PRIMARY KEY (ID),
+    FOREIGN KEY (OSIS) REFERENCES profile(ID)
+);
+CREATE TABLE Awards (
+    ID int NOT NULL UNIQUE AUTO_INCREMENT ,
+    Grade int NOT NULL,
+    Awards varchar(256) NOT NULL,
+    Description varchar(256) NOT NULL,
+    OSIS int NOT NULL,
+    PRIMARY KEY (ID),
+    FOREIGN KEY (OSIS) REFERENCES profile(ID)
+);
+
+CREATE TABLE evaluation (
+    ID int NOT NULL UNIQUE AUTO_INCREMENT ,
+    Word varchar(64) NOT NULL,
+    Description varchar(256) NOT NULL,
+    OSIS int NOT NULL,
+    PRIMARY KEY (ID),
+    FOREIGN KEY (OSIS) REFERENCES profile(ID)
+);
