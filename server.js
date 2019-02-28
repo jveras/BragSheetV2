@@ -32,6 +32,7 @@ connection.connect(function(err) {
 
     console.log("Connected!!");
 });
+
 /*
 var n = { first: "J", last: "V", gender: "M", grade: 12 };
 
@@ -44,10 +45,10 @@ connection.query('INSERT INTO profile SET ?', n, function(error, results, fields
 connection.query('SELECT * FROM profile', function(error, results, fields) {
     if (error) console.error(error);
 
-    console.log(results[0].Last + " " + results[0].First);
+    console.log(results[0]);
 });
-*/
 
+*/
 
 app.get("/", function(req, res) {
     res.render("index", {
@@ -80,21 +81,36 @@ app.post("/Account/Register", function(req, res) {
     }else{
         console.log("Not Long Enough");
     }
-    /*var student = {
-        email: d.tbEmail,
-        osis: parseInt(d.osis),
-        password: d.osis,
-        verify: 0
+
+    var gen = {
+        code: "0123ABCde98"
     };
 
-    connection.query('INSERT INTO account SET ?', student, function(error, results, fields) {
+
+    connection.query('INSERT INTO verification SET ?', gen, function(error, results, fields) {
         if (error) console.error(error);
 
-        console.log(results);
+        console.log(results.insertId);
+
+        var student = {
+            email: d.tbEmail,
+            password: d.osis,
+            verify: results.insertId,
+            roleid: 5
+        };
+    
+        connection.query('INSERT INTO account SET ?', student, function(error, results, fields) {
+            if (error) console.error(error);
+    
+            console.log(results);
+        });
+        
     });
+
+    
     res.render("/Account/Register", {
 
-    })*/
+    })
 
 });
 
