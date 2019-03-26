@@ -80,7 +80,7 @@ app.post("/Account/Register", function(req, res) {
     }else{
         console.log("Not Long Enough");
     }
-    /*var student = {
+    var student = {
         email: d.tbEmail,
         osis: parseInt(d.osis),
         password: d.osis,
@@ -88,13 +88,15 @@ app.post("/Account/Register", function(req, res) {
     };
 
     connection.query('INSERT INTO account SET ?', student, function(error, results, fields) {
-        if (error) console.error(error);
+        if (error) throw console.error(error);
+        
+        res.render("/account/profile", {
+            title: "Profile",
+            css: "/css/profile.css"
+        });
 
-        console.log(results);
     });
-    res.render("/Account/Register", {
-
-    })*/
+    
 
 });
 
