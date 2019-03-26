@@ -99,18 +99,36 @@ app.post("/Account/Register", function(req, res) {
             roleid: 5
         };
     
-        connection.query('INSERT INTO account SET ?', student, function(error, results, fields) {
+        connection.query('INSERT INTO account SET ?', student, function(error, accResults, fields) {
             if (error) console.error(error);
     
-            console.log(results);
+            
+            var profile = {
+                first: "Jared",
+                last: "Knight",
+                gender: 1,
+                gradelvl: 11,
+                gpa: 3.0,
+                schoolID: 1,
+                accountID: results.insertId
+            };
+            
+            connection.query('INSERT INTO profile SET ?', profile, function(error, results, fields) {
+                if (error) console.error(error);
+        
+                console.log(results);
+    
+                res.render("account/register", {
+                    title: "Register Successful",
+                    css: "/css/register.css"
+                })
+            });
+
+
         });
         
     });
 
-    
-    res.render("/Account/Register", {
-
-    })
 
 });
 
