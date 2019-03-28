@@ -41,7 +41,12 @@ var logo = ["aoit.png", "urban.png", "brooklyn.png", "CH.png", "multi.png"];
             }
     });
 
+$("#dvStudent").hide();
 
+$("#partOne").click(function(){
+    $("#dvStudent").show();
+    $("#basicInfo").hide();
+});
 
 //Profile JavaScript
 $(".writeGender").hide();
