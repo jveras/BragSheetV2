@@ -41,7 +41,56 @@ var logo = ["aoit.png", "urban.png", "brooklyn.png", "CH.png", "multi.png"];
             }
     });
 
+$("#dvStudent").hide();
+var data = {
+    studentSchool: "",
+    studentEmail:"",
+    studentOsis:"",
+    studentFirstName:"",
+    studentMiddleName:"",
+    studentLastName:"",
+    studentGrade:"",
+    studentGPA:"",
+    studentGender:""
+};
 
+function part2(){
+    var studentSchool = $(".selectSchool").val();
+    var partOneStatus = false;
+        if(studentSchool>0){
+            partOneStatus = true;
+        }else{
+            partOneStatus=false;
+            console.log(studentSchool + " Part 1");
+        }
+    var studentEmail = $(".email").val();
+        if(studentEmail.length > 0){
+            partOneStatus = true;
+        }else{
+            partOneStatus=false;
+            console.log(studentEmail + " Part 2");
+        }
+    var studentOsis = $(".osis").val();
+    var studentConfirmOsis = $(".confirmOsis").val();
+        if(studentOsis.length===9){
+            if(studentConfirmOsis === studentOsis){
+                partOneStatus = true;
+            }
+        }else{
+            partOneStatus=false;
+            console.log(studentOsis + " "+ studentConfirmOsis +" Part 3")
+        }
+        if(partOneStatus){
+            $("#dvStudent").show();
+            $("#basicInfo").hide();
+            data["studentSchool"] = studentschool;
+            data["studentEmail"] = studentEmail;
+            data["studentOsis"] = studentOsis; 
+        }else{
+            alert("Missing information");
+        }
+        
+};
 
 //Profile JavaScript
 $(".writeGender").hide();
