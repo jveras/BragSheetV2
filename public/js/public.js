@@ -72,28 +72,9 @@ function part2() {
     }
     var studentOsis = $(".osis").val();
     var studentConfirmOsis = $(".confirmOsis").val();
-<<<<<<< HEAD
     if (studentOsis.length === 9) {
         if (studentConfirmOsis === studentOsis) {
             partOneStatus = true;
-=======
-        if(studentOsis.length===9){
-            if(studentConfirmOsis === studentOsis){
-                partOneStatus = true;
-            }
-        }else{
-            partOneStatus=false;
-            console.log(studentOsis + " "+ studentConfirmOsis +" Part 3")
-        }
-        if(partOneStatus){
-            $("#dvStudent").show();
-            $("#basicInfo").hide();
-            data["studentSchool"] = studentSchool;
-            data["studentEmail"] = studentEmail;
-            data["studentOsis"] = studentOsis; 
-        }else{
-            alert("Missing information");
->>>>>>> 2e34555e81973b41a705fd2fe633185ea42da1dc
         }
     } else {
         partOneStatus = false;
