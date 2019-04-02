@@ -10,7 +10,6 @@
         </div>
     </div>
     <br>   
-    <form method="POST" action = "/Account/Register">
   
         <div class="row">
             <div class="col-sm-3 col-md-3 col-lg-3" >
@@ -73,15 +72,15 @@
             <!-- NAME -->
             <div class="row">
               <div class=" col-sm-4 col-md-4 col-lg-4">
-                <label class="fname">First Name </label><input id="fname" name="tbFirst" placeholder="First Name" class="form-control" />
+                <label class="">First Name </label><input id="fname" name="tbFirst" placeholder="First Name" class="form-control fname" />
               </div>
     
               <div class="col-sm-4 col-md-4 col-lg-4">
-                <label class="mname">Middle Name </label><input id="mname" name="tbMiddle" placeholder="Middle Name" class="studentMName form-control" />
+                <label class="">Middle Name </label><input id="mname" name="tbMiddle" placeholder="Middle Name" class=" mname studentMName form-control" />
               </div>
     
               <div class="col-sm-4 col-md-4 col-lg-4">
-                <label class="lname">Last Name </label><input id="lname" name="tbLast" placeholder="Last Name" class="studentLName form-control" />
+                <label class="">Last Name </label><input id="lname" name="tbLast" placeholder="Last Name" class="lname studentLName form-control" />
               </div>
     
             </div>
@@ -89,20 +88,20 @@
     
             <div class="row">
               <div class="col-sm-2 col-md-2 col-lg-2">
-                <label class="school">School Grade </label><select id="school" name="tbGrade" class="selectGrade form-control">
-                <option >Select Grade</option>
-                <option >11th</option>
-                <option >12th</option>
+                <label class="">School Grade </label><select id="grade" name="tbGrade" class="selectGrade grade form-control">
+                <option value="0">Select Grade</option>
+                <option value ="1">11th</option>
+                <option value="2">12th</option>
                 </select>
               </div>
               
               <div class="col-sm-2 col-md-2 col-lg-2">
                   <!-- TEMP FIX -->
-                  <label class="gp"> GPA </label><input id="gp" type="text" name="tbGPA" class="form-control" placeholder="GPA" />
+                  <label class=""> GPA </label><input id="gp" type="text" name="tbGPA" class="form-control gpa" placeholder="GPA" />
                </div>
     
               <div class="col-sm-4 col-md-4 col-lg-4">
-                <label class="gender">Gender </label><select id="gender" name="tbGenderOption" class="selectGender form-control">
+                <label class="">Gender </label><select id="gender" name="tbGenderOption" class="gender selectGender form-control">
                 <option value="0">Select Gender</option>
                 <option value="1">Male</option>
                 <option value="2">Female</option>
@@ -111,7 +110,7 @@
               </div>
               <div class="writeGender col-sm-4 col-md-4 col-lg-4">
                 
-                   <label class="genderclass"> Write Your Gender </label><input id="sgen" placeholder="Gender" class=" form-control" name="tbWriteGender" />
+                   <label class=""> Write Your Gender </label><input id="sgen" placeholder="Gender" class="writeGender  form-control" name="tbWriteGender" />
               </div>
               
               
@@ -122,10 +121,10 @@
               <div class="row">
     
                 <div class="col-sm-12 col-md-12 col-lg-12">
-                  <button id="partTwo" style="float: right !important;" class="btn btn-success" type="submit">Register</button>
+                  <button id="partTwo" style="float: right !important;" class="btn btn-success" onclick="submit()">Register</button>
                 </div>
               </div>
     
             </div>
-    </form>
+    
 <% include ../footer.ejs %>
