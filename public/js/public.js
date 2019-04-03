@@ -54,30 +54,38 @@ var data = {
     studentGender: ""
 };
 
+
 function part2() {
+    var errors = [];
     var studentSchool = $(".selectSchool").val();
-    var partOneStatus = false;
+    var partOneStatus = true;
     if (studentSchool > 0) {
-        partOneStatus = true;
+        
     } else {
         partOneStatus = false;
+        errors.push("School is not selected");
         console.log(studentSchool + " Part 1");
     }
     var studentEmail = $(".email").val();
     if (studentEmail.length > 0) {
-        partOneStatus = true;
+        
     } else {
         partOneStatus = false;
+        errors.push("Email is empty");
         console.log(studentEmail + " Part 2");
     }
     var studentOsis = $(".osis").val();
     var studentConfirmOsis = $(".confirmOsis").val();
     if (studentOsis.length === 9) {
         if (studentConfirmOsis === studentOsis) {
-            partOneStatus = true;
+            
+        }else {
+            errors.push("Osis Does not match");
+            partOneStatus=false;
         }
     } else {
         partOneStatus = false;
+        errors.push("Osis is not the correct length");
         console.log(studentOsis + " " + studentConfirmOsis + " Part 3")
     }
     if (partOneStatus) {
@@ -87,95 +95,129 @@ function part2() {
         data["studentEmail"] = studentEmail;
         data["studentOsis"] = studentOsis;
     } else {
-        alert("Missing information");
+        var errorMsg = "";
+        for(var i = 0;i<errors.length; i++){
+            
+            var errorNum= i+1;
+            errorMsg += "Error "+errorNum+": "+errors[i]+ '\r\n';
+        }
+        alert('Fix the following errors: \r\n'+errorMsg);
     }
 
 };
 
 function submit(){
-    var partTwoStatus = false;
+    var errors = [];
+    var partTwoStatus = true;
     var studentFirstName = $(".fname").val();
         if(studentFirstName.length > 0){
-            partTwoStatus = true;
+
         }else{
             partTwoStatus = false;
-            console.log("part1");
+            errors.push("Fill in first name");
         }
-    var studentMiddletName = $(".mname").val();
+    var studentMiddleName = $(".mname").val();
         
     var studentLastName = $(".lname").val();
     if(studentLastName.length > 0){
-        partTwoStatus = true;
+        
     }else{
         partTwoStatus = false;
-        console.log("part2");
+        errors.push("Fill in last name");
     }
     var studentGrade = $(".grade").val();
     if(studentGrade > 0){
-        partTwoStatus = true;
+        
     }else{
         partTwoStatus = false;
-        console.log("part3");
+        errors.push("Fill in your Grade level");
     }
     var studentGPA = $(".gpa").val();
-    if(studentGPA > 0){
-        partTwoStatus = true;
+if(studentGPA.length > 0 ){
+    if(studentGPA >= 0&& studentGPA <=4){
+       
     }else{
         partTwoStatus = false;
-        console.log("part4");
+        errors.push("Make sure it is in 4.0 scale ");
     }
+}else{
+    partTwoStatus = false;
+    errors.push("Fill in GPA ");
+}
     var studentGender = $(".gender").val();
     var StudentWritesGender = false;
     if(studentGender > 0){
-        if(studentGender===3){
+        if(studentGender == 3){
             StudentWritesGender = true;
             var studentGenderWritten = $(".writeGender").val();
             if(studentGenderWritten.length > 0 ){
-                partTwoStatus = true;
+
             }else{
                 partTwoStatus = false;
-                console.log("part5");
+                errors.push("Fill in your written Gender");
             }
         }else{
-            partTwoStatus = true;
+            
         }
     }else{
         partTwoStatus = false;
-        console.log("part6");
+        errors.push("Select a gender");
     }
 
     if(partTwoStatus){
         alert("Finished")
         data["studentFirstName"] = studentFirstName;
-        if(studentMiddletName.length>0){
-            data["studentMiddleName"] = studentMiddleName;
-        }else{
-            data["studentMiddleName"] = "";
-        }
+            if(studentMiddleName !== undefined){
+                data["studentMiddleName"] = studentMiddleName;
+            }else{
+                data["studentMiddleName"] = "";
+            }
         data["studentLastName"] = studentLastName;
         data["studentGrade"] = studentGrade;
         data["studentGPA"] = studentGPA; 
-        if(StudentWritesGender){
-        data["studentGender"] = studentGender;
-        data["StudentWritesGender"] = studentGenderWritten;
-        }else{
-            data["studentGender"] = studentGender;
-        }
+            if(StudentWritesGender){
+                data["studentGender"] = studentGender;
+                data["StudentWritesGender"] = studentGenderWritten;
+            }else{
+                data["studentGender"] = studentGender;
+            }
+        
+
+            fetch("http://localhost:8081/Account/Register", {
+                method: 'POST', // or 'PUT'
+                body: JSON.stringify(data), // data can be `string` or {object}!
+                headers:{
+                  'Content-Type': 'application/json'
+                }
+            }).then(res => { 
+                  return res.json(); 
+            }).then(response => 
+                console.log('Success:', JSON.stringify(response)
+            )).catch(error => console.error('Error:', error));
+
+
+
     }else{
-        alert("Missing Info");
+        var errorMsg = "";
+        for(var i = 0;i<errors.length; i++){
+            
+            var errorNum= i+1;
+            errorMsg += "Error "+errorNum+": "+errors[i]+ '\r\n';
+        }
+        alert('Fix the following errors: \r\n'+errorMsg);
     }
 
 }
 
 //Profile JavaScript
-$(".writeGender").hide();
-console.log("Hit");
+$(".genderDiv").hide();
+
 $("#gender").on("change", function() {
 
     if (this.value === "3") {
-        $(".writeGender").show();
-        console.log("testing");
+        $(".genderDiv").show();
+        
     } else {
-        $(".writeGender").hide();
+        $(".genderDiv").hide();
     }
 });

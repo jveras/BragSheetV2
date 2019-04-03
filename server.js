@@ -70,64 +70,80 @@ app.post("/Account/Register", function(req, res) {
     var d = req.body;
 
     console.log(d);
-    
-    if(d.osis.length ===9){
-        console.log("Long Enough");
-        if(osis=d.osisConfirm){
-            console.log("Are the same")
-        }else{
-            console.log("Are not the same");
-        }
-    }else{
-        console.log("Not Long Enough");
-    }
 
-    var gen = {
-        code: "0123ABCde98"
-    };
-
-
-    connection.query('INSERT INTO verification SET ?', gen, function(error, results, fields) {
-        if (error) console.error(error);
-
-        console.log(results.insertId);
-
-        var student = {
-            email: d.tbEmail,
-            password: d.osis,
-            verify: results.insertId,
-            roleid: 5
-        };
-    
-        connection.query('INSERT INTO account SET ?', student, function(error, accResults, fields) {
-            if (error) console.error(error);
-    
-            
-            var profile = {
-                first: "Jared",
-                last: "Knight",
-                gender: 1,
-                gradelvl: 11,
-                gpa: 3.0,
-                schoolID: 1,
-                accountID: results.insertId
-            };
-            
-            connection.query('INSERT INTO profile SET ?', profile, function(error, results, fields) {
-                if (error) console.error(error);
-        
-                console.log(results);
-    
-                res.render("account/register", {
-                    title: "Register Successful",
-                    css: "/css/register.css"
-                })
-            });
-
-
-        });
-        
+    res.json({
+        data:d.studentFirstName
     });
+
+
+    // CREATE TABLE account (
+    //     ID int NOT NULL UNIQUE AUTO_INCREMENT ,
+    //     Email varchar(64) NOT NULL UNIQUE ,
+    //     Password varchar(256) NOT NULL,
+    //     verify int NOT NULL,
+    //     RoleID int NOT NULL,
+    //     PRIMARY KEY (ID),
+    //     FOREIGN KEY (RoleID) REFERENCES role(ID),
+    //     FOREIGN KEY (verify) REFERENCES verification(ID)
+    // );
+    
+    // if(d.osis.length ===9){
+    //     console.log("Long Enough");
+    //     if(osis=d.osisConfirm){
+    //         console.log("Are the same")
+    //     }else{
+    //         console.log("Are not the same");
+    //     }
+    // }else{
+    //     console.log("Not Long Enough");
+    // }
+
+    // var gen = {
+    //     code: "0123ABCde98"
+    // };
+
+
+    // connection.query('INSERT INTO verification SET ?', gen, function(error, results, fields) {
+    //     if (error) console.error(error);
+
+    //     console.log(results.insertId);
+
+    //     var student = {
+    //         email: d.tbEmail,
+    //         password: d.osis,
+    //         verify: results.insertId,
+    //         roleid: 5
+    //     };
+    
+    //     connection.query('INSERT INTO account SET ?', student, function(error, accResults, fields) {
+    //         if (error) console.error(error);
+    
+            
+    //         var profile = {
+    //             first: "Jared",
+    //             last: "Knight",
+    //             gender: 1,
+    //             gradelvl: 11,
+    //             gpa: 3.0,
+    //             schoolID: 1,
+    //             accountID: results.insertId
+    //         };
+            
+    //         connection.query('INSERT INTO profile SET ?', profile, function(error, results, fields) {
+    //             if (error) console.error(error);
+        
+    //             console.log(results);
+    
+    //             res.render("account/register", {
+    //                 title: "Register Successful",
+    //                 css: "/css/register.css"
+    //             })
+    //         });
+
+
+    //     });
+        
+    // });
 
 
 });
