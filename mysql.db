@@ -10,6 +10,7 @@ CREATE TABLE role (
     Code varchar(64),
     PRIMARY KEY (ID)
 );
+
 CREATE TABLE account (
     ID int NOT NULL UNIQUE AUTO_INCREMENT ,
     Email varchar(64) NOT NULL UNIQUE ,
@@ -20,6 +21,7 @@ CREATE TABLE account (
     FOREIGN KEY (RoleID) REFERENCES role(ID),
     FOREIGN KEY (verify) REFERENCES verification(ID)
 );
+
 CREATE TABLE schools (
     ID int NOT NULL UNIQUE AUTO_INCREMENT ,
     Name varchar(256) NOT NULL,
@@ -31,18 +33,23 @@ CREATE TABLE schools (
     Code varchar(256),
     PRIMARY KEY (ID)
 );
+
 CREATE TABLE genders (
     ID int NOT NULL UNIQUE AUTO_INCREMENT,
-    Type int NOT NULL, 
-    Other varchar(64) NOT NULL, 
+    Type int NOT NULL,  
     PRIMARY KEY (ID)    
 );
+
+INSERT INTO genders(Type) VALUES ("Female", "Male", "Other");
+
+
 CREATE TABLE profile (
     ID int NOT NULL UNIQUE AUTO_INCREMENT ,
     First varchar(32) NOT NULL,
     Middle varchar(32),
     Last varchar(32) NOT NULL,
     Gender int NOT NULL,
+    GenderOther varchar(64) NULL,
     GradeLVL int NOT NULL,
     GPA int NOT NULL,
     SchoolID int NOT NULL,
@@ -52,11 +59,15 @@ CREATE TABLE profile (
     FOREIGN KEY (AccountID) REFERENCES account(ID),
     FOREIGN KEY (Gender) REFERENCES genders(ID)
 );
+
 CREATE TABLE familyType (
     ID int NOT NULL UNIQUE AUTO_INCREMENT ,
     Type varchar(64) NOT NULL,
     PRIMARY KEY (ID)
 );
+
+
+
 CREATE TABLE guardian (
     ID int NOT NULL UNIQUE AUTO_INCREMENT ,
     FamilyTypeID int NOT NULL,
