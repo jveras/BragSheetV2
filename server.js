@@ -75,6 +75,21 @@ app.post("/Account/Register", function(req, res) {
         data:d.studentFirstName
     });
 
+app.get("/Account/Evaluation", function(req, res) {
+
+    console.log("Connected");
+});
+
+// app.post("/Account/Evaluation", function(req, res) {
+//     var d = req.body;
+    
+
+//     console.log(d);
+
+//     res.json({
+//         data:d.studentFirstName
+//     });
+// });
 
     // CREATE TABLE account (
     //     ID int NOT NULL UNIQUE AUTO_INCREMENT ,

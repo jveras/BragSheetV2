@@ -1,0 +1,67 @@
+<% include ../header.ejs %>
+<div class="container">
+    <h1>Student Brag Sheet  </h1>
+    <div class="dvDescription">
+      <br>
+
+      <h3>Use a word to describe yourself and explain why. Do this 3 or more times</h3>
+      <hr />
+      
+      
+      <div class="row">
+        <div class="col-sm-12 col-md-12 col-lg-12 text-center">
+          
+          
+<table id="table">
+
+  <tr>
+  
+    <th>Word</th>
+    <th>Description</th>
+  
+  </tr>
+  
+  
+  <tr>
+  
+    <td width="200px">
+      </br>
+      </br>
+      <input id="word" class="form-control" type="text" name="words" placeholder="Word" />
+      <h6>Ex: Creative</h6>
+    </td>
+    
+    <td>
+      <textarea id="des" class="form-control" cols="30" rows="2" name="desc" placeholder="Description"></textarea>
+    </td>
+  
+    <td>
+      
+      <button onclick="add()" class="add form-control btn-primary">+</button>
+      <button onclick="remove()" class="rem form-control btn-danger">x</button>
+      
+    </td>
+  
+  </tr>
+
+</table>
+
+
+          
+        </div>
+      </div>
+
+
+      <br>
+      <br>
+      
+      <div class="row">
+        <div class="col-sm-12 col-md-12 col-lg-12">
+            <!-- TEMP FIX -->
+             
+            <button id="next1" style="float: right !important;" class="btn btn-success" type="submit">Next</button>
+          </div>
+      </div>
+    </div>
+  </div>
+  <% include ../footer.ejs %>

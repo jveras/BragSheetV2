@@ -221,3 +221,29 @@ $("#gender").on("change", function() {
         $(".genderDiv").hide();
     }
 });
+
+var table = document.getElementById("table");
+
+var count = $("#table tr").length;
+
+function add(){
+
+  var row = table.insertRow(table.length);
+  var cell1 = row.insertCell(0);
+  var cell2 = row.insertCell(1);
+  cell1.innerHTML = '<input id="word" type="text" placeholder="Word" class="form-control" />';
+  cell2.innerHTML = '<textarea id="des" cols="30" rows="2" placeholder="Description" class="form-control"></textarea>';
+  
+  console.log(count);
+  
+}
+
+
+function remove() {
+  
+    document.getElementById("table").deleteRow(count);
+    
+    console.log(table.length);
+    
+  }
+  
