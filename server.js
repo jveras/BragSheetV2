@@ -19,7 +19,7 @@ app.use(express.static(__dirname + "/public"));
 app.set("views", __dirname + "/view");
 app.set("view engine", "ejs");
 app.engine("html", require("ejs").renderFile);
-
+/*
 var connection = mysql.createConnection({
     host: 'platinumprojects.net',
     user: 'plati_student',
