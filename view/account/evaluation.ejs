@@ -7,53 +7,46 @@
       <h3>Use a word to describe yourself and explain why. Do this 3 or more times</h3>
       <hr />
       
-      
-      <div class="row">
-        <div class="col-sm-12 col-md-12 col-lg-12 text-center">
-          
-          
-<table id="table">
-
-  <tr>
-  
-    <th>Word</th>
-    <th>Description</th>
-  
-  </tr>
-  
-  
-  <tr>
-  
-    <td width="200px">
-      </br>
-      </br>
-      <input id="word" class="form-control" type="text" name="words" placeholder="Word" />
-      <h6>Ex: Creative</h6>
-    </td>
     
-    <td>
-      <textarea id="des" class="form-control" cols="30" rows="2" name="desc" placeholder="Description"></textarea>
-    </td>
-  
-    <td>
       
-      <button onclick="add()" class="add form-control btn-primary">+</button>
-      <button onclick="remove()" class="rem form-control btn-danger">x</button>
-      
-    </td>
-  
-  </tr>
-
-</table>
-
-
-          
+      </div>
+      <div class="row ">
+        <div class="col-sm-12 col-md-12 col-lg-12 ">
+            <div class="input-group mb-3 d-flex justify-content-center ">
+                <input type="text" class="text-center "placeholder="Enter Selected Word" aria-describedby="button-addon2">
+                <div class="input-group-append">
+                  <button class="btn btn-outline-secondary" type="button" data-toggle="modal" data-target="# " id="button-addon2">Enter</button>
+                </div>
+              </div>
         </div>
       </div>
+      <!-- Modal -->
+<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Description</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text Selcted word">With textarea</span>
+                </div>
+                <textarea class="form-control" aria-label="With textarea"></textarea>
+              </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
-
-      <br>
-      <br>
       
       <div class="row">
         <div class="col-sm-12 col-md-12 col-lg-12">

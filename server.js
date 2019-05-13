@@ -74,10 +74,14 @@ app.post("/Account/Register", function(req, res) {
     res.json({
         data:d.studentFirstName
     });
+});
 
 app.get("/Account/Evaluation", function(req, res) {
 
-    console.log("Connected");
+    res.render("account/evaluation", {
+        css: "/css/register.css",
+        title: "Acount Created"
+    });
 });
 
 // app.post("/Account/Evaluation", function(req, res) {
@@ -161,7 +165,7 @@ app.get("/Account/Evaluation", function(req, res) {
     // });
 
 
-});
+
 
 app.get("/Account/Login", function(req, res) {
     res.render("account/login", {
