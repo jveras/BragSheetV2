@@ -20,6 +20,7 @@ app.set("views", __dirname + "/view");
 app.set("view engine", "ejs");
 app.engine("html", require("ejs").renderFile);
 
+
 /*
 var connection = mysql.createConnection({
     host: 'platinumprojects.net',
@@ -168,8 +169,7 @@ app.get("/Account/Evaluation", function(req, res) {
 
 app.get("/Account/Login", function(req, res) {
     res.render("account/login", {
-        title: "Log In",
-        css: "/css/login.css"
+        title: "Log In"
     });
 });
 
