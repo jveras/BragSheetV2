@@ -20,6 +20,7 @@ app.set("views", __dirname + "/view");
 app.set("view engine", "ejs");
 app.engine("html", require("ejs").renderFile);
 
+/*
 var connection = mysql.createConnection({
     host: 'platinumprojects.net',
     user: 'plati_student',
@@ -61,7 +62,6 @@ app.get("/Account/Register", function(req, res) {
 
 
     res.render("account/register", {
-        css: "/css/register.css",
         title: "Acount Created"
     });
 });
@@ -79,7 +79,6 @@ app.post("/Account/Register", function(req, res) {
 app.get("/Account/Evaluation", function(req, res) {
 
     res.render("account/evaluation", {
-        css: "/css/register.css",
         title: "Acount Created"
     });
 });
