@@ -63,7 +63,7 @@ app.get("/Account/Register", function(req, res) {
 
 
     res.render("account/register", {
-        title: "Acount Created"
+        title: "Account Created"
     });
 });
 
