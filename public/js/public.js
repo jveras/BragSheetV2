@@ -1,7 +1,7 @@
 //Register JavaScipt
 $(".main").hide();
 $(".logo").hide();
-var logo = ["aoit.png", "urban.png", "brooklyn.png", "CH.png", "multi.png"];
+// var logo = ["aoit.png", "urban.png", "brooklyn.png", "CH.png", "multi.png"];
 
 // $("#selectSchool").on("change", function() {
 //     console.log(this.value);
@@ -44,7 +44,7 @@ var logo = ["aoit.png", "urban.png", "brooklyn.png", "CH.png", "multi.png"];
 
 function schoolSelectionFunction (){
    var schooling =  document.querySelector('#selectSchool');
-   var schoolOpt = 
+   //var schoolOpt = 
 }
 
 

@@ -60,10 +60,8 @@ app.get("/", function(req, res) {
 
 app.get("/Account/Register", function(req, res) {
 
-
-
     res.render("account/register", {
-        title: "Account Created"
+        title: "Create New Account"
     });
 });
 
@@ -77,10 +75,10 @@ app.post("/Account/Register", function(req, res) {
     });
 });
 
-app.get("/Account/Evaluation", function(req, res) {
+app.get("/Student/Evaluation", function(req, res) {
 
-    res.render("account/evaluation", {
-        title: "Acount Created"
+    res.render("student/evaluation", {
+        title: "Evaluation"
     });
 });
 
@@ -187,10 +185,9 @@ app.post("/Account/Login", function(req, res) {
 });
 
 
-app.get("/Account/Profile", function(req, res) {
-    res.render("account/profile", {
-        title: "Profile",
-        css: "/css/profile.css"
+app.get("/Student/Profile", function(req, res) {
+    res.render("student/profile", {
+        title: "Profile"
     });
 });
 
