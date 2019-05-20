@@ -130,8 +130,10 @@
 
             <script>
 
-              var logo = ["aoit", "urban", "brooklyn", "CH", "multi"];
-              var counsel = document.querySelector("#selectSchoolCounselors").value;
+              var logo = ['placer',"aoit", "urban", "brooklyn", "CH", "multi"];
+              var counselorsSelector = ['Select School','Tony Wright Jr.','Sabrina Ally','Melissa Billings','Siiri Rikala','Kim Torres'];
+
+              var counsel = document.querySelector("#selectSchoolCounselors");
 
               function el(name, all){
                 if(all)
@@ -140,9 +142,9 @@
               }
 
               el("#selectSchool").onchange = function(){
-                el(".logo").setAttribute("src", "/img/" + logo[parseInt(this.value) - 1] + ".png");
-                el('#no').innerHTML( counsel[parseInt(this.value)]);
+                el(".logo").setAttribute("src", "/img/" + logo[parseInt(this.value)] + ".png");
+                el("#selectSchoolCounselors").innerHTML = '<option>' + counselorsSelector[parseInt(this.value)] + '</option>';
 
               }
-            </script>>
+            </script>
 <% include ../footer.ejs %>
