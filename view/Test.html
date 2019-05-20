@@ -28,7 +28,21 @@
 			
 			console.log( JSON.stringify(data) );
 
-			fetch("http://localhost:8081/post", {
+			/*
+fetch("/Account/Register", {
+				method: "POST",
+				mode: "cors",
+				headers: {
+					"Content-Type": "application/json"
+				},
+				body: JSON.stringify({name: "Fuk Out Of Here"})
+			}).then(function(response){
+				return response.json();
+			}).then(function(data){
+				console.log(data);
+			});
+			*/
+			fetch("/Account/Register", {
 				method: "POST",
 				mode: "cors",
 				headers: {
