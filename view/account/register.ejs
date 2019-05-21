@@ -37,14 +37,8 @@
                     </div>
                 </div>
                 <div class="col-sm-6 col-md-6 col-lg-6">
-                    <label>Counselors</label>
-                    <select id="selectSchoolCounselors" disabled class="selectSchoolCounselors form-control" name="selectSchoolCounselors">
-                    <option value="0">Select School</option>
-                    <option value="1">Tony Wright Jr.</option>
-                    <option value="2">Sabrina Ally</option>
-                    <option value="3">Melissa Billings</option>
-                    <option value="4">Siiri Rikala</option>                           
-                    <option value="5">Kim Torres</option>
+                    <label>School College Counselor: </label>
+                    <input type="text" name="ssc" class="form-control" disabled>
                 </select>
                 </div> 
             </div>
@@ -131,7 +125,7 @@
             <script>
 
               var logo = ['placer',"aoit", "urban", "brooklyn", "CH", "multi"];
-              var counselorsSelector = ['Select School','Tony Wright Jr.','Sabrina Ally','Melissa Billings','Siiri Rikala','Kim Torres'];
+              var counselorsSelector = ['','Tony Wright Jr.','Sabrina Ally','Melissa Billings','Siiri Rikala','Kim Torres'];
 
               var counsel = document.querySelector("#selectSchoolCounselors");
 
@@ -143,8 +137,8 @@
 
               el("#selectSchool").onchange = function(){
                 el(".logo").setAttribute("src", "/img/" + logo[parseInt(this.value)] + ".png");
-                el("#selectSchoolCounselors").innerHTML = '<option>' + counselorsSelector[parseInt(this.value)] + '</option>';
-
+                el("[name=ssc]").setAttribute("value", counselorsSelector[this.value]);
               }
             </script>
+
 <% include ../footer.ejs %>
