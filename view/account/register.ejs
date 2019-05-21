@@ -10,7 +10,7 @@
         </div>
     </div>
     <br>   
-  
+        <div id='no'></div>
         <div class="row">
             <div class="col-sm-3 col-md-3 col-lg-3" >
             </div>
@@ -124,8 +124,10 @@
 
             <script>
 
-              var logo = ["", "aoit", "urban", "brooklyn", "CH", "multi"];
-              var counselors = ["", "Tony Wright Jr.", "Sabrina Ally", "Melissa Billings", "Siiri Rikala", "Kim Torres"];
+              var logo = ['placer',"aoit", "urban", "brooklyn", "CH", "multi"];
+              var counselorsSelector = ['','Tony Wright Jr.','Sabrina Ally','Melissa Billings','Siiri Rikala','Kim Torres'];
+
+              var counsel = document.querySelector("#selectSchoolCounselors");
 
               function el(name, all){
                 if(all)
@@ -135,7 +137,7 @@
 
               el("#selectSchool").onchange = function(){
                 el(".logo").setAttribute("src", "/img/" + logo[parseInt(this.value)] + ".png");
-                el("[name=ssc]").setAttribute("value", counselors[this.value]);
+                el("[name=ssc]").setAttribute("value", counselorsSelector[this.value]);
               }
             </script>
 

@@ -66,12 +66,14 @@ app.get("/Account/Register", function(req, res) {
 });
 
 app.post("/Account/Register", function(req, res) {
+    console.log("HIT");
+    
     var d = req.body;
 
-    console.log(d);
+    console.log(d.name);
 
     res.json({
-        data:d.studentFirstName
+        data:"Results from Server: " + d.name + " Bra!!!"
     });
 });
 
