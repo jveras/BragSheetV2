@@ -37,14 +37,8 @@
                     </div>
                 </div>
                 <div class="col-sm-6 col-md-6 col-lg-6">
-                    <label>Counselors</label>
-                    <select id="selectSchoolCounselors" disabled class="selectSchoolCounselors form-control" name="selectSchoolCounselors">
-                    <option value="0">Select School</option>
-                    <option value="1">Tony Wright Jr.</option>
-                    <option value="2">Sabrina Ally</option>
-                    <option value="3">Melissa Billings</option>
-                    <option value="4">Siiri Rikala</option>                           
-                    <option value="5">Kim Torres</option>
+                    <label>School College Counselor: </label>
+                    <input type="text" name="ssc" class="form-control" disabled>
                 </select>
                 </div> 
             </div>
@@ -130,7 +124,8 @@
 
             <script>
 
-              var logo = ["aoit", "urban", "brooklyn", "CH", "multi"];
+              var logo = ["", "aoit", "urban", "brooklyn", "CH", "multi"];
+              var counselors = ["", "Tony Wright Jr.", "Sabrina Ally", "Melissa Billings", "Siiri Rikala", "Kim Torres"];
 
               function el(name, all){
                 if(all)
@@ -139,7 +134,9 @@
               }
 
               el("#selectSchool").onchange = function(){
-                el(".logo").setAttribute("src", "/img/" + logo[parseInt(this.value) - 1] + ".png");
+                el(".logo").setAttribute("src", "/img/" + logo[parseInt(this.value)] + ".png");
+                el("[name=ssc]").setAttribute("value", counselors[this.value]);
               }
-            </script>>
+            </script>
+
 <% include ../footer.ejs %>
