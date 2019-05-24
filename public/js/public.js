@@ -3,13 +3,6 @@ $(".main").hide();
 $(".logo").hide();
 
 
-
-function schoolSelectionFunction (){
-   var schooling =  document.querySelector('#selectSchool');
-   //var schoolOpt = 
-}
-
-
 $("#dvStudent").hide();
 var data = {
     studentSchool: "",
