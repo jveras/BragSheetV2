@@ -1,3 +1,4 @@
+
 //Register JavaScipt
 $(".main").hide();
 $(".logo").hide();
