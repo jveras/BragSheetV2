@@ -70,11 +70,10 @@ app.post("/Account/Register", function(req, res) {
     
     var d = req.body;
 
-    console.log(d.name);
+    console.log(d);
 
-    res.json({
-        data:"Results from Server: " + d.name + " Bra!!!"
-    });
+    res.redirect('/Student/Evaluation');
+
 });
 
 app.get("/Student/Evaluation", function(req, res) {
